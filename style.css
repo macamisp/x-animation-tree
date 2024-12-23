@@ -1,0 +1,162 @@
+
+* {
+  box-sizing: border-box;
+}
+
+
+
+.tree {
+  position: relative;
+  height: 50vmin;
+  width: 25vmin;
+  transform-style: preserve-3d;
+  -webkit-animation: spin 2s infinite linear;
+          animation: spin 2s infinite linear;
+}
+
+.tree__light {
+  transform-style: preserve-3d;
+  position: absolute;
+  height: 1vmin;
+  width: 1vmin;
+  border-radius: 50%;
+  -webkit-animation: flash calc(var(--speed) * 1s)
+                     calc(var(--delay) * 1s)
+                     infinite steps(4),
+                     appear 0.5s calc(var(--appear) * 0.05s)
+                     both;
+          animation: flash calc(var(--speed) * 1s) calc(var(--delay) * 1s)
+                     infinite steps(4), appear 0.5s calc(var(--appear) * 0.05s) both;
+  left: 50%;
+  transform: translate(-50%, 50%) rotateY(calc(var(--rotate, 0) * 1deg))
+                     translate3d(0, 0, calc(var(--radius, 0) * 1vmin));
+  bottom: calc(var(--y, 0) * 1%);
+}
+
+.tree__star {
+  stroke-width: 5vmin;
+  stroke: #f5e0a3;
+  filter: drop-shadow(0 0 2vmin #fcf1cf);
+  height: 5vmin;
+  width: 5vmin;
+  overflow: visible !important;
+  bottom: 100%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  position: absolute;
+  stroke-dasharray: 1000 1000;
+  fill: none;
+  -webkit-animation: stroke 1s calc((var(--delay) * 0.95) * 0.05s) both;
+          animation: stroke 1s calc((var(--delay) * 0.95) * 0.05s) both;
+}
+@-webkit-keyframes stroke {
+  from {
+    stroke-dashoffset: -1000;
+  }
+}
+@keyframes stroke {
+  from {
+    stroke-dashoffset: -1000;
+  }
+}
+@-webkit-keyframes spin {
+}
+  @-webkit-keyframes pulse {
+    0%, 100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.2);
+    }
+  }
+  @keyframes pulse {
+    0%, 100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.2);
+    }
+  }
+  @-webkit-keyframes flicker {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
+  }
+  @keyframes flicker {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
+  }
+  
+  .snowflake {
+    position: absolute;
+    top: 0;
+    color: white;
+    font-size: 1rem;
+    opacity: 0.8;
+    pointer-events: none;
+    animation: fall linear infinite;
+  }
+  
+  @keyframes fall {
+    to {
+      transform: translateY(100vh);
+    }
+  }
+  
+
+@keyframes spin {
+  to {
+    transform: rotateY(360deg);
+  }
+}
+@-webkit-keyframes appear {
+  from {
+    opacity: 0;
+  }
+}
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+}
+@-webkit-keyframes flash {
+  0%, 100% {
+    background: #00f;
+  }
+  20% {
+    background: #fff;
+  }
+  40% {
+    background: #00f;
+  }
+  60% {
+    background: #fff;
+  }
+  80% {
+    background: #0000ff;
+  }
+}
+@keyframes flash {
+  0%, 100% {
+    background: #00f;
+  }
+  20% {
+    background: #fff;
+  }
+  40% {
+    background: #00f;
+  }
+  60% {
+    background: #fff;
+  }
+  80% {
+    background: #00f;
+  }
+}
